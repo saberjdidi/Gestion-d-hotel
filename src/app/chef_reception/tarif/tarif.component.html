@@ -1,0 +1,203 @@
+
+
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
+  <a class="navbar-brand" href="#"><i class="fa fa-h-square"></i> Gestion Hotel</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link waves-effect waves-light" routerLink="/add-tarif">
+              <i class="fa fa-book"></i> Ajouter Tarif</a>
+          </li>
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light" href="#">
+          <i class="fa fa-envelope"></i> Contact
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <i class="fa fa-user"></i> Profile </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
+          <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+    <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-2">
+      
+          <nav class="nav flex-column cyan lighten-3 py-4 mb-r font-weight-bold z-depth-1">
+            <a class="nav-link active indigo-text" routerLink="/home-chef"><i class="fa fa-home"></i> &nbsp; Home</a>
+            <a class="nav-link indigo-text" routerLink="/chambre">Gestion de Chambres</a>
+            <a class="nav-link indigo-text" routerLink="/tarif">Gestion de Tarifs</a>
+            <a class="nav-link indigo-text" routerLink="/facture-chef">Gestion de Factures</a>
+            <a class="nav-link indigo-text" routerLink="/add-tarif">Ajouter Tarif</a>
+            <a class="nav-link indigo-text" routerLink="/tarif"></a>
+          </nav>
+      
+        </div>
+        <!-- Grid column -->
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header text-center">
+                 <strong style="font-family:Times New Roman, Times, serif; font-size: large; color:cadetblue;">Gestion des Tarifs</strong> 
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-11 col-sm-12 ">
+                      <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                        <thead>
+                          <tr>
+                            <th>Prix</th>
+                            <th>Type de service</th>
+                          
+                            <th class="td-actions"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let trf of tarif">
+                            <td>{{trf.prix}}</td>
+                            <td>{{trf.typeService}}</td>
+                            <td class="td-actions">
+                                <button class="btn btn-primary" >
+                                  <!--boutton modif-->
+                                  <i class="fa fa-upload" (click)="updateTarif = trf" ></i>
+                                </button>
+                                &nbsp; 
+                            
+                                <button class="btn btn-danger" (click)="deleteBtn(trf._id)" >
+                                  <!--bouton delet-->
+                                  <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                              </td>
+                        </tr>
+                         
+                        </tbody>
+                      </table>
+                    </div>
+                  
+                    <div class="panel panel-default" *ngIf="updateTarif">
+                      
+                    <div class="panel-body"> 
+                      <div class="embed-responsive embed-responsive-16by9">
+                          <h3 class="text-center">Modifier Tarif</h3>
+                              <div class="form-group">
+                                  <label><strong>Prix</strong></label>
+                                  <input type="number" class="form-control" [(ngModel)]="updateTarif.prix">
+                              </div>
+                            <div class="form-group">
+                              <label><strong>Type de service</strong></label>
+                              <input type="text" class="form-control" [(ngModel)]="updateTarif.typeService">
+                            </div>
+                           
+                     
+                             <button  type="submit" class="btn btn-success" (click)="updateTarifBtn()">Modifier </button>
+                             <div class="clearfix"></div>
+                         
+                      </div> 
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      
+      </div>
+      <!-- Grid row -->
+
+<br>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+  <!-- Footer Links -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="#!">About us</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="#!">Settings</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+    
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="#!">Contact</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+
+    <!-- Grid row-->
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+
+    </div>
+    <!-- Grid row-->
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!-- Grid row-->
+    <div class="row pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-12">
+
+        <div class="mb-5 flex-center">
+
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fa fa-facebook fa-lg white-text mr-4"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fa fa-twitter fa-lg white-text mr-4"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fa fa-google-plus fa-lg white-text mr-4"> </i>
+          </a>
+         
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> Gestion d'Hotel</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

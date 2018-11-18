@@ -1,0 +1,51 @@
+<br><br>
+<div class="container">
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 mb-4 pb-5">
+
+      <div class="card">
+          <div class="card-body">
+  
+              <!--Header-->
+              <div class="form-header default-color">
+                  <h3 class="text-center">
+                      <i class="fa fa-lock"></i> Sign In</h3>
+              </div>
+            <form [formGroup]="loginForm" >
+              <!--Body-->
+              <div class="md-form">
+                  <i class="fa fa-envelope prefix grey-text"></i>
+                  <input type="text" class="form-control" formControlName="email">
+                  <label for="defaultForm-email">email</label>
+              </div>
+  
+              <div class="md-form">
+                  <i class="fa fa-lock prefix grey-text"></i>
+                  <input type="password" class="form-control" formControlName="password">
+                  <label for="defaultForm-pass">password</label>
+              </div>
+  
+              <div class="text-center">
+                  <button class="btn btn-default waves-effect waves-light" (click)="loginBtn()" >Login</button>
+              </div>
+            </form>
+          </div>
+          
+          
+  
+          <!--Footer-->
+          <div class="modal-footer">
+              <div class="options">
+                  <p>Not a member?
+                      <a routerLink="/register">Sign Up</a>
+                  </p>
+                  
+              </div>
+          </div>
+      </div>
+  
+  </div>
+</div>
+</div>  
+

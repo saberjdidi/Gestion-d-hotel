@@ -1,0 +1,54 @@
+<br><br>
+<div class="container">
+<div class="row">
+  <div class="col-md-3"></div>
+<div class="col-md-6 mb-4">
+
+  <!--Form with header-->
+  <div class="card">
+      <div class="card-body">
+
+          <!--Header-->
+          <div class="form-header peach-gradient">
+              <h3 class="text-center">
+                  <i class="fa fa-user"></i> Register</h3>
+          </div>
+        <form [formGroup]="registerForm" >
+          <!--Body-->
+          <div class="md-form">
+              <i class="fa fa-user prefix grey-text"></i>
+              <input type="text" class="form-control" formControlName="nom" >
+              <label for="orangeForm-name" class="">nom</label>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-user prefix grey-text"></i>
+            <input type="text" class="form-control" formControlName="prenom">
+            <label for="orangeForm-name" class="">prenom</label>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-phone prefix grey-text"></i>
+            <input type="number" class="form-control" formControlName="telephone">
+            <label for="orangeForm-name" class="">telephone</label>
+          </div>
+          <div class="md-form">
+              <i class="fa fa-envelope prefix grey-text"></i>
+              <input type="text" class="form-control" formControlName="email">
+              <label for="orangeForm-email" class="">email</label>
+          </div>
+          <div class="md-form">
+              <i class="fa fa-lock prefix grey-text"></i>
+              <input type="password" class="form-control" formControlName="password">
+              <label for="orangeForm-pass">password</label>
+          </div>
+
+          <div class="text-center">
+              <button class="btn btn-deep-orange waves-effect waves-light" (click)="registerBtn()" >Sign up</button>
+          </div>
+        </form>
+      </div>
+  </div>
+  <!--/Form with header-->
+
+</div>
+</div>
+</div>
